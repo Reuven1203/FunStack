@@ -1,11 +1,13 @@
 import React from 'react';
 import {Drawer} from '@mui/material';
 
-const Nav = () => {
+const Nav = (props) => {
     return (
-            <div className="h-full bg-white w-full">
-                Test 123
-            </div>
+            <Drawer open={props.open} onClose={props.onClose}>
+                <div className="bg-white w-1/2 h-full text-white">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+                </div>
+            </Drawer>
     );
 };
 

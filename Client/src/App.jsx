@@ -7,13 +7,12 @@ import Home from './Routes/Home/Home';
 import ScreenContent from './Routes/ScreenContent/ScreenContent';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
       <BrowserRouter>
         <Routes>
-          <Route to="/*" element={<ScreenContent/>}/>
-            <Route to="/" element={<Home/>}/>
+          <Route path="/*" element={<ScreenContent/>}>
+            <Route path="" element={<Home/>}/>
+          </Route>
         </Routes>
       </BrowserRouter>
   )
