@@ -14,8 +14,8 @@ const ScreenContent = () => {
     return (
         <>
             <Nav open={open}/>
-            <Button onClick={handleDrawerOpen} onClose={handleDrawerClose}>Click me</Button>
-            <div onClick={handleDrawerClose}>
+            <div onClick={open && handleDrawerClose} className="w-screen h-screen bg-white">
+                <Button onClick={handleDrawerOpen}>Open</Button>
                 <Outlet/>
             </div>
 
