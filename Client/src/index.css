@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Atma&family=Poppins&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: atma, sans-serif;
+}

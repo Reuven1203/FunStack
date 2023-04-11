@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from '../../components/Nav/Nav.jsx';
 import {Outlet} from 'react-router-dom';
 import {Button} from '@mui/material';
-
+import Header from './header.jsx';
 const ScreenContent = () => {
     const [open, setOpen] = React.useState(false);
     const handleDrawerOpen = () => {
@@ -14,8 +14,8 @@ const ScreenContent = () => {
     return (
         <>
             <Nav open={open}/>
-            <div onClick={open && handleDrawerClose} className="w-screen h-screen bg-white">
-                <Button onClick={handleDrawerOpen}>Open</Button>
+            <div onClick={open && handleDrawerClose} className="w-screen h-screen bg-white text-black">
+                <Header onMenuClick={handleDrawerOpen}/>
                 <Outlet/>
             </div>
 
