@@ -3,10 +3,10 @@ import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
 import { Typography } from '@mui/material';
 
-export default function CustomToolTip({ title, children }) {
+export default function CustomToolTip({ title, placement, children }) {
   return (
     <div>
-      <Grid container justifyContent="center">
+      <Grid container justifyContent={placement}>
         <Grid item>
           <Tooltip
             disableFocusListener

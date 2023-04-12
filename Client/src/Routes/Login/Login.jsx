@@ -182,7 +182,10 @@ export default function Login() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <CustomToolTip title="Click this button to access FunStack">
+              <CustomToolTip
+                title="Click this button to access FunStack"
+                placement="center"
+              >
                 <Button
                   type="submit"
                   fullWidth
