@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import background from '../../../public/logo.png';
+import background from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 
 function Copyright(props) {
@@ -33,14 +33,34 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const [firstName, setFirstName] = React.useState('');
+  const [pinValue, setPin] = React.useState('');
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+
+  const handleNameChange = (event) => {
+    setFirstName(event.target.value);
+    setIsSubmitted(false);
+  };
+
+  const handlePinChange = (event) => {
+    setPin(event.target.value);
+    setIsSubmitted(false);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const name = data.get('email');
+    const pin = data.get('password');
+    setIsSubmitted(true);
+    if (name.trim() === '' || pin.trim() === '') {
+      return;
+    }
+    window.location.href = '/home';
   };
+
+  const nameError = isSubmitted && firstName.trim() === '';
+  const pinError = isSubmitted && pinValue.trim() === '';
 
   return (
     <ThemeProvider theme={theme}>
@@ -70,6 +90,7 @@ export default function Login() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              marginTop: '8rem',
             }}
           >
             <Typography component="h1" variant="h5">
@@ -82,6 +103,7 @@ export default function Login() {
               sx={{ mt: 1 }}
             >
               <TextField
+                helperText="Please enter your First Name (e.g. 'John'))"
                 margin="normal"
                 required
                 fullWidth
@@ -90,8 +112,13 @@ export default function Login() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={firstName}
+                onChange={handleNameChange}
+                error={nameError}
+                color={nameError ? 'error' : 'primary'}
               />
               <TextField
+                helperText="Please enter your 4-Digit Pin (e.g. '1234'))"
                 margin="normal"
                 required
                 fullWidth
@@ -100,21 +127,23 @@ export default function Login() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={pinValue}
+                onChange={handlePinChange}
+                error={pinError}
+                color={pinError ? 'error' : 'primary'}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <Link to="/home" variant="body2">
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Sign In
-                </Button>
-              </Link>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
