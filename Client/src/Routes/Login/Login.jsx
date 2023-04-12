@@ -33,18 +33,34 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const [firstName, setFirstName] = React.useState('');
+  const [pinValue, setPin] = React.useState('');
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+
+  const handleNameChange = (event) => {
+    setFirstName(event.target.value);
+    setIsSubmitted(false);
+  };
+
+  const handlePinChange = (event) => {
+    setPin(event.target.value);
+    setIsSubmitted(false);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const email = data.get('email');
-    const password = data.get('password');
-
-    if (email.trim() === '' || password.trim() === '') {
+    const name = data.get('email');
+    const pin = data.get('password');
+    setIsSubmitted(true);
+    if (name.trim() === '' || pin.trim() === '') {
       return;
     }
-
     window.location.href = '/home';
   };
+
+  const nameError = isSubmitted && firstName.trim() === '';
+  const pinError = isSubmitted && pinValue.trim() === '';
 
   return (
     <ThemeProvider theme={theme}>
@@ -74,6 +90,7 @@ export default function Login() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              marginTop: '8rem',
             }}
           >
             <Typography component="h1" variant="h5">
@@ -95,6 +112,10 @@ export default function Login() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={firstName}
+                onChange={handleNameChange}
+                error={nameError}
+                color={nameError ? 'error' : 'primary'}
               />
               <TextField
                 helperText="Please enter your 4-Digit Pin (e.g. '1234'))"
@@ -106,6 +127,10 @@ export default function Login() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={pinValue}
+                onChange={handlePinChange}
+                error={pinError}
+                color={pinError ? 'error' : 'primary'}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
