@@ -122,6 +122,16 @@ export default function Login() {
                 id="email"
                 label="Name"
                 name="email"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <BasicModal
+                        title="Let's Get Your Name Right"
+                        message="If you're not sure what to enter in the name field, don't worry! Just ask a grown-up for help. They can help you enter your name correctly so you can get started."
+                      />
+                    </InputAdornment>
+                  ),
+                }}
                 autoComplete="email"
                 autoFocus
                 value={firstName}
@@ -149,7 +159,12 @@ export default function Login() {
                         </IconButton>
                       </InputAdornment>
                       <InputAdornment position="end">
-                        <BasicModal />
+                        <BasicModal
+                          title="What is my 4-digit PIN?"
+                          message="You can find the 4 digit pin number by asking your
+            parents/guardians. They should have received it from the Professor
+            via email."
+                        />
                       </InputAdornment>
                     </>
                   ),
