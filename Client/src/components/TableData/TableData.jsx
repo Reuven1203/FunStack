@@ -1,6 +1,41 @@
-import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Avatar } from '@mui/material';
+import React, { useState } from 'react';
+import { Search } from '@mui/icons-material';
+import { TextField, InputAdornment, IconButton } from '@mui/material';
+import { Button, Card, CardContent, Modal } from '@mui/material';
+import CustomToolTip from '../ToolTip/CustomToolTip';
+
+const DetailsModal = ({ open, handleClose, selectedData }) => {
+  return (
+    <Modal open={open} onClose={handleClose}>
+      <Card
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: 400,
+          height: 300,
+          border: '2px solid #000',
+        }}
+      >
+        <CardContent>
+          <h1 className="text-4xl flex justify-center">
+            {selectedData.firstName} {selectedData.lastName}
+            <Avatar src={selectedData.avatar} sx={{ width: 50, height: 50 }} />
+          </h1>
+          <div className="text-lg text-center m-4 space-y-4">
+            <p>Age: {selectedData.age}</p>
+            <p>Email: {selectedData.email}</p>
+            <p>Location: {selectedData.location}</p>
+            <p>Phone: {selectedData.phoneNumber}</p>
+          </div>
+        </CardContent>
+      </Card>
+    </Modal>
+  );
+};
 
 const columns = [
   {
@@ -138,15 +173,67 @@ for (let i = 0; i < 30; i++) {
 }
 
 export default function TableData() {
+  const [filter, setFilter] = useState('');
+
+  const [selectedData, setSelectedData] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleRowClick = (rowData) => {
+    setSelectedData(rowData);
+    setModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setSelectedData('');
+    setModalOpen(false);
+  };
+
+  const filteredRows = students.filter(
+    (row) =>
+      row.firstName.toLowerCase().includes(filter.toLowerCase()) ||
+      row.lastName.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value);
+  };
   return (
     <div style={{ height: 400, width: '80%' }}>
+      <CustomToolTip title="Find your friends">
+        <TextField
+          label="Search"
+          variant="outlined"
+          value={filter}
+          onChange={handleFilterChange}
+          style={{ marginBottom: 16 }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <IconButton>
+                  <Search />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
+      </CustomToolTip>
+
       <DataGrid
         sx={{ border: 2, borderColor: 'divider' }}
-        rows={students}
+        rows={filteredRows}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
+        disableRowSelectionOnClick
+        disableColumnFilter
+        disableColumnMenu
+        onRowClick={(rowData) => handleRowClick(rowData.row)}
+      />
+      <DetailsModal
+        open={modalOpen}
+        handleClose={handleModalClose}
+        selectedData={selectedData}
       />
     </div>
   );
