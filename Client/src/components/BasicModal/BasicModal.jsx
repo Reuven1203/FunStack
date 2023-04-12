@@ -17,7 +17,7 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal() {
+export default function BasicModal(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -35,12 +35,10 @@ export default function BasicModal() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            What is my 4-digit PIN?
+            {props.title}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            You can find the 4 digit pin number by asking your
-            parents/guardians. They should have received it from the professor
-            via email.
+            {props.message}
           </Typography>
         </Box>
       </Modal>
