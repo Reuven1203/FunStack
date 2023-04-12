@@ -1,0 +1,153 @@
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import { Avatar } from '@mui/material';
+
+const columns = [
+  {
+    field: 'avatar',
+    headerName: '',
+    width: 100,
+    renderCell: (params) => (
+      <Avatar alt={params.row.firstName} src={params.row.avatar} />
+    ),
+  },
+
+  { field: 'firstName', headerName: 'First name', width: 130 },
+  { field: 'lastName', headerName: 'Last name', width: 130 },
+  { field: 'email', headerName: 'Email', width: 250 },
+  {
+    field: 'age',
+    headerName: 'Age',
+    type: 'number',
+    width: 90,
+  },
+  { field: 'location', headerName: 'Location', width: 250 },
+  { field: 'phoneNumber', headerName: 'Phone', width: 150 },
+];
+
+const firstNames = [
+  'Olivia',
+  'Liam',
+  'Emma',
+  'Noah',
+  'Ava',
+  'William',
+  'Sophia',
+  'James',
+  'Isabella',
+  'Benjamin',
+  'Mia',
+  'Lucas',
+  'Charlotte',
+  'Henry',
+  'Amelia',
+  'Alexander',
+  'Evelyn',
+  'Michael',
+  'Abigail',
+  'Ethan',
+  'Elizabeth',
+  'Daniel',
+  'Harper',
+  'Matthew',
+  'Ella',
+  'Aiden',
+  'Grace',
+  'Owen',
+  'Chloe',
+  'David',
+  'Victoria',
+];
+const lastNames = [
+  'Smith',
+  'Johnson',
+  'Brown',
+  'Lee',
+  'Jones',
+  'Miller',
+  'Davis',
+  'Garcia',
+  'Rodriguez',
+  'Martinez',
+  'Hernandez',
+  'Lopez',
+  'Jackson',
+  'Adams',
+  'Baker',
+  'Perez',
+  'Moore',
+  'Bailey',
+  'Williams',
+  'Wilson',
+  'Anderson',
+  'Thomas',
+  'Taylor',
+  'Martin',
+  'Thompson',
+  'Allen',
+  'Clark',
+  'Robinson',
+  'Walker',
+  'White',
+];
+
+const getRandomElement = (array) =>
+  array[Math.floor(Math.random() * array.length)];
+const getRandomAge = () => Math.floor(Math.random() * 9) + 3;
+const getRandomLocation = () =>
+  `${Math.floor(Math.random() * 10000) + 100} ${getRandomElement([
+    'Main',
+    'Broadway',
+    'St-Laurent',
+    'St-Hubert',
+  ])} Street, ${getRandomElement(['Montreal', 'Laval'])}, QC`;
+const getRandomPhoneNumber = () =>
+  `${getRandomElement(['514', '450'])}-${
+    Math.floor(Math.random() * 900) + 100
+  }-${Math.floor(Math.random() * 9000) + 1000}`;
+const getRandomEmail = (firstName, lastName) =>
+  `${firstName.toLowerCase()}${lastName.toLowerCase()}@${getRandomElement([
+    'gmail',
+    'funstack',
+    'outlook',
+  ])}.com`;
+const getRandomAvatar = (id) => `https://i.pravatar.cc/150?img=${id}`;
+
+const students = [];
+
+for (let i = 0; i < 30; i++) {
+  const id = i + 1;
+  const firstName = getRandomElement(firstNames);
+  const lastName = getRandomElement(lastNames);
+  const age = getRandomAge();
+  const location = getRandomLocation();
+  const phoneNumber = getRandomPhoneNumber();
+  const email = getRandomEmail(firstName, lastName);
+  const avatar = getRandomAvatar(id);
+
+  students.push({
+    id,
+    firstName,
+    lastName,
+    age,
+    location,
+    phoneNumber,
+    email,
+    avatar,
+  });
+}
+
+export default function TableData() {
+  return (
+    <div style={{ height: 400, width: '80%' }}>
+      <DataGrid
+        sx={{ border: 2, borderColor: 'divider' }}
+        rows={students}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        checkboxSelection
+      />
+    </div>
+  );
+}
