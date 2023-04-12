@@ -9,7 +9,7 @@ const Links = [{
     color: '#ff5555',
 },
     {
-        name: 'Leaning Lions',
+        name: 'Learning Lions',
         icon: '\u{1F981}',
         color: '#ff9355',
 

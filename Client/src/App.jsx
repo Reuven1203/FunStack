@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/*" element={<ScreenContent />}>
-          <Route path="" element={<Home />} />
+          <Route path="home" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>
