@@ -3,16 +3,14 @@ import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
 import { Typography } from '@mui/material';
 
-export default function LoginToolTip({ children }) {
+export default function CustomToolTip({ title, children }) {
   return (
     <div>
       <Grid container justifyContent="center">
         <Grid item>
           <Tooltip
             disableFocusListener
-            title={
-              <Typography>Click this button to access FunStack</Typography>
-            }
+            title={<Typography>{title}</Typography>}
           >
             {children}
           </Tooltip>

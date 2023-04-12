@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import background from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 import BasicModal from '../../components/BasicModal/BasicModal';
-import LoginToolTip from '../../components/ToolTip/LoginToolTip';
+import CustomToolTip from '../../components/ToolTip/CustomToolTip';
 function Copyright(props) {
   return (
     <Typography
@@ -182,7 +182,7 @@ export default function Login() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <LoginToolTip>
+              <CustomToolTip title="Click this button to access FunStack">
                 <Button
                   type="submit"
                   fullWidth
@@ -191,7 +191,7 @@ export default function Login() {
                 >
                   Sign In
                 </Button>
-              </LoginToolTip>
+              </CustomToolTip>
 
               <Copyright sx={{ mt: 5 }} />
             </Box>
