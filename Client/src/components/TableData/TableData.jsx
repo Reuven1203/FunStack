@@ -3,7 +3,6 @@ import { Avatar } from '@mui/material';
 import React, { useState } from 'react';
 import { Search } from '@mui/icons-material';
 import { TextField, InputAdornment, IconButton } from '@mui/material';
-import { Button } from '@mui/material';
 import CustomToolTip from '../ToolTip/CustomToolTip';
 import { DetailsModal } from './DetailsModal';
 

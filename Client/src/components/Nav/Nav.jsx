@@ -8,7 +8,7 @@ const Links = [
     name: 'Zoo',
     icon: '\u{1F6D6}',
     color: '#ff5555',
-    path: '/zoo',
+    path: '/home',
   },
   {
     name: 'Learning Lions',
