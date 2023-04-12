@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import background from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
+import BasicModal from '../../components/BasicModal/BasicModal';
 
 function Copyright(props) {
   return (
@@ -134,18 +135,25 @@ export default function Login() {
                 required
                 fullWidth
                 name="password"
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
+                InputProps={{
+                  endAdornment: (
+                    <>
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                      <InputAdornment position="end">
+                        <BasicModal />
+                      </InputAdornment>
+                    </>
+                  ),
+                }}
                 label="4-Digit Pin"
                 type={showPassword ? 'text' : 'password'}
                 id="password"
