@@ -2,8 +2,6 @@ import React from 'react';
 import GradingTable from '../../components/GradingTable/GradingTable';
 
 function GorillaGrades() {
-  console.log(firstName);
-
   return (
     <>
       <h1 className="text-6xl text-center mt-10">
