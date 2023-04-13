@@ -9,7 +9,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: atma, sans-serif;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 p{
     font-size: 25px;
