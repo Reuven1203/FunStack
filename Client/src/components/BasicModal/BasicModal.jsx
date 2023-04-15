@@ -39,6 +39,7 @@ export default function BasicModal(props) {
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {props.message}
+            {props.children}
           </Typography>
         </Box>
       </Modal>

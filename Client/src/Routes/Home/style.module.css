@@ -1,11 +1,9 @@
 .background {
-   background-image: url('../../assets/ZooBackground.jpeg');
+   background-image: url('../../assets/ZooBackground.png');
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
     height:100%;
-    display: flex;
-    justify-content: center;
- padding: 10px;
+ justify-content: end;
  overflow: hidden;
 }
