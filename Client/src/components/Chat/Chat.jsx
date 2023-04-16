@@ -78,7 +78,7 @@ const Chat = () => {
       <div className="flex flex-col h-2/3 rounded-lg bg-white shadow-lg p-4">
         <div className="flex justify-center ">
           <Avatar alt="" src={activeChat.avatar} />
-          <h2 className="text-md font-bold m-2">{activeChat.name}</h2>
+          <h3 className="text-md font-bold m-2">{activeChat.name}</h3>
         </div>
 
         <div className="flex flex-col flex-1 overflow-y-auto" ref={chatBoxRef}>
@@ -130,7 +130,7 @@ const Chat = () => {
   const renderUserList = () => {
     return (
       <div className="flex flex-col bg-white rounded-lg shadow-md p-4">
-        <h2 className="text-center text-md font-bold">Friends👨‍👩‍👧‍👦</h2>
+        <h3 className="text-center text-md font-bold">Friends👨‍👩‍👧‍👦</h3>
         {chats.map((chat) => (
           <div
             key={chat.id}

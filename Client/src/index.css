@@ -20,3 +20,56 @@ h1{
 h2{
     font-size: 50px;
 }
+h3{
+    font-size: 20px;
+}
+
+.gradient-text-red {
+    background: linear-gradient(to right, #ff0000, #ff7f00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .gradient-text-orange {
+    background: linear-gradient(to right, #ff7f00, #ffff00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .gradient-text-yellow {
+    background: linear-gradient(to right, #ffff00, #00ff00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .gradient-text-green {
+    background: linear-gradient(to right, #00ff00, #00ffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .gradient-text-blue {
+    background: linear-gradient(to right, #00ffff, #0000ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .gradient-text-purple {
+    background: linear-gradient(to right, #0000ff, #8b00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .gradient-text-pink {
+    background: linear-gradient(to right, #8b00ff, #ff00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  

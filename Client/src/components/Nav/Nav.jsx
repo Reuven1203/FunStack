@@ -35,6 +35,13 @@ const Links = [
     color: '#55ffff',
     path: '/parrot-chat',
   },
+
+  {
+    name: 'Jungle Rewards',
+    icon: '\u{2B50}',
+    color: '#Bf77ec',
+    path: '/jungle-rewards',
+  },
 ];
 
 const Nav = (props) => {
@@ -53,7 +60,7 @@ const Nav = (props) => {
           padding: 1,
         }}
       >
-        <div className="flex flex-col items-center space-y-4 w-full">
+        <div className="flex flex-col items-center space-y-3 w-full">
           {/*back icon to close drawer*/}
           <IconButton onClick={props.onClose} size="large">
             <ArrowBack fontSize="large" />
@@ -69,7 +76,7 @@ const Nav = (props) => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    height: 120,
+                    height: 100,
                   }}
                 >
                   <span className="text-6xl">

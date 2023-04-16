@@ -44,6 +44,10 @@ export default function Login() {
 
   const [showPassword, setShowPassword] = React.useState(false);
 
+  React.useEffect(() => {
+    localStorage.setItem('firstName', firstName);
+  }, [firstName]);
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
