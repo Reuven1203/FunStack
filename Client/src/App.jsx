@@ -7,6 +7,7 @@ import SafariMates from './Routes/SafariMates/SafariMates';
 import GorillaGrades from './Routes/GorillaGrades/GorillaGrades';
 import ParrotChat from './Routes/ParrotChat/ParrotChat';
 import JungleRewards from './Routes/JungleRewards/JungleRewards';
+import LearningLions from './Routes/LearningLions/LearningLions.jsx';
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
           <Route path="gorilla-grades" element={<GorillaGrades />} />
           <Route path="parrot-chat" element={<ParrotChat />} />
           <Route path="jungle-rewards" element={<JungleRewards />} />
+          <Route path="learning-lions" element={<LearningLions />} />
+          <Route path="learning-lions/shapes" />
+          <Route path="learning-lions/numbers" />
+          <Route path="learning-lions/colors" />
+          <Route path="learning-lions/animals" />
         </Route>
       </Routes>
     </BrowserRouter>
