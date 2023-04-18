@@ -82,13 +82,13 @@ return (
                                     key={index}
                                     style={{
                                         backgroundColor: 'white',
-                    color: 'black',
-                    width: '200px',
-                    height: '100px',
-                    fontSize: '25px',
-                    borderRadius: '15px',
-                    border: '4px solid',
-                    borderColor: animal.color,
+                                        color: 'black',
+                                        width: '200px',
+                                        height: '100px',
+                                        fontSize: '25px',
+                                        borderRadius: '15px',
+                                        border: '4px solid',
+                                        borderColor: animal.color,
                                     }}
                                     onClick={() => {
                                         checkAnswer(animal.name);
