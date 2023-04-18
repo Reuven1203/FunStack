@@ -11,6 +11,7 @@ import LearningLions from './Routes/LearningLions/LearningLions.jsx';
 import Shapes from './Routes/LearningLions/Shapes/Shapes.jsx';
 import Animals from './Routes/LearningLions/Animals/Animals.jsx';
 import Numbers from './Routes/LearningLions/Numbers/Numbers.jsx';
+import Colors from './Routes/LearningLions/Colors/Colors.jsx';
 
 function App() {
   return (
