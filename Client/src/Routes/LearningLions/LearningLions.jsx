@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './style.module.css';
 import { Card } from '@mui/material';
 import { Link } from 'react-router-dom';
 import CustomToolTip from '../../components/ToolTip/CustomToolTip';
+
 const activities = [
   {
     name: 'Shapes',
@@ -33,7 +33,7 @@ const activities = [
     img: 'https://img.freepik.com/free-vector/cute-animals-white_1308-35096.jpg?w=2000',
   },
 ];
-const LearningLions = () => {
+const LearningLions = (props) => {
   return (
     <div
       className="flex flex-col justify-center items-center"
