@@ -1,33 +1,12 @@
 <div align="center">
 
-  <img src="https://media.discordapp.net/attachments/680253377254522900/1067905721519329361/officccccc-removebg-preview.png" alt="logo" width="200" height="auto" />
-  <h1>FunStack</h1>
+  <img src="https://user-images.githubusercontent.com/91300383/232908610-0bd1da23-33f5-4dd7-b52c-d24fd5e0da56.png" alt="logo" width="200" height="auto" />
+
 
   <p>
     e-Learning System for Kids 
   </p>
   
-  
-<!-- Badges -->
-<p align='center'>
-         <!-- <a href="https://github.com/Reuven1203/FunStack" target="_blank"><img alt="JavaScript"
-                        src="https://img.shields.io/badge/-Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F">
-
-        <!-- CSS  -->
-        <a href="https://github.com/yoniabitbol/CircleConnect" target="_blank"><img alt="React"
-                        src="https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB">
-        </a>
-   
-        <a href="https://github.com/yoniabitbol/CircleConnect" target="_blank"><img alt="Tailwind"
-                        src="https://img.shields.io/badge/Tailwind%20CSS-092749?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4&labelColor=000000">
-        </a>
-        <a href="https://github.com/yoniabitbol/CircleConnect" target="_blank"><img alt="Vs Code"
-                        src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white">
-        </a>
-           <a href="https://github.com/yoniabitbol/CircleConnect" target="_blank"><img alt="Git"
-                        src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
-        </a>
-</p>
 
 </div>
 
@@ -95,8 +74,6 @@ Go to the project directory
 ```
 
 Install dependencies
-
-Prerequesite: Install and run Docker
 
 ```bash
   cd Client
