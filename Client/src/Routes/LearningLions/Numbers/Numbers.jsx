@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Button from '@mui/material/Button';
-import CustomTooltip from '../../../components/ToolTip/CustomTooltip';
 import { Card } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
@@ -160,20 +159,16 @@ const Numbers = () => {
         <div className="flex-col justify-center align-center items-center">
           <h1 className="text-center">What does this equal to?</h1>
 
-          <div
-            className="w-full mt-4 flex justify-center"
-          >
-            <CustomTooltip>
-              <Card
-                sx={{
-                  borderRadius: '15px',
-                  padding: '15px',
-                  boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
-                }}
-              >
-                <img src={number.img} className="w-[200px] h-[200px]" />
-              </Card>
-            </CustomTooltip>
+          <div className="w-full mt-4 flex justify-center">
+            <Card
+              sx={{
+                borderRadius: '15px',
+                padding: '15px',
+                boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+              }}
+            >
+              <img src={number.img} className="w-[200px] h-[200px]" />
+            </Card>
           </div>
           <div className="flex space-x-5 mt-[5rem]">
             {numbers.map((number, index) => {
