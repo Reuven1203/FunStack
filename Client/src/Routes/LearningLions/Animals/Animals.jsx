@@ -1,26 +1,30 @@
 import {useState} from 'react';
 import Button from '@mui/material/Button';
+import bark from '../../../assets/Sounds/bark.mp3';
+import moo from '../../../assets/Sounds/moo.mp3';
+import chicken from '../../../assets/Sounds/chicken.mp3';
+import meow from '../../../assets/Sounds/meow.mp3';
 
 const animals = [
     {
         name: 'Cat',
         img:'https://img.freepik.com/premium-vector/cute-cat-cartoon-sitting_194935-99.jpg?w=2000',
-        sound: './meow.mp3',
+        sound: meow,
     },
     {
         name: 'Dog',
         img: 'https://img.freepik.com/premium-vector/cute-little-dog-cartoon-isolated-white_143596-3.jpg?w=2000',
-        sound: './bark.mp3',
+        sound: bark,
     },
     {
         name: 'Cow',
         img: 'https://static.vecteezy.com/system/resources/previews/013/211/278/original/cartoon-of-cow-illustration-cow-in-format-image-illustration-of-cow-free-png.png',
-        sound: './moo.mp3',
+        sound: moo,
     },
     {
         name: 'Chicken',
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Chicken_cartoon_04.svg/723px-Chicken_cartoon_04.svg.png',
-        sound: './chicken.mp3',
+        sound: chicken,
     }
 ];
 
@@ -31,6 +35,12 @@ const animals = [
         const [correctAnswer, setCorrectAnswer] = useState(false);
         const [animalIndex, setAnimalIndex] = useState(0);
         const [done, setDone] = useState(false);
+
+        const playSound = (sound) => {
+            const audio = new Audio(sound);
+            audio.play();
+        }
+
         const checkAnswer = (answer) => {
             if (answer === animal.name) {
                 setScore(score + 1);
@@ -40,9 +50,8 @@ const animals = [
             }
             setAnswerEntered(true);
         }
-    }
 
-    const onNextHandler = () => {
+        const onNextHandler = () => {
             
             //set to next animal
             if (animalIndex < animals.length - 1) {
@@ -52,21 +61,23 @@ const animals = [
                 setDone(true);
             }
             setAnswerEntered(false);
+
+        }
     
 return (
         <div className="w-full h-full flex justify-center mt-7">
             {!answerEntered && !done && <div className="flex-col justify-center align-center items-center">
                 <h1 className="text-center">What animal is this</h1>
                 {animal.name}
-                <div className="w-full flex justify-center">
-                    <img src ={animal.img} className="w-[200px] h-[200px]"/>
+                <div className="w-full flex justify-center" onClick={() => playSound(animal.sound)}>
+                    <img src ={animal.img}  className="w-[200px] h-[200px]"/>
                 </div>
                 <div className="flex space-x-5 mt-[5rem]">
                     {animals.map((animal, index) => {
                             return (
                                 <Button
                                     key={index}
-                                    style={{backgroundColor: animal.color, color: 'white', width: '200px', height: '200px', fontSize: '25px'}}
+                                    style={{backgroundColor: 'black', color: 'white', width: '200px', height: '200px', fontSize: '25px'}}
                                     onClick={() => {
                                         checkAnswer(animal.name);
                                     }}
@@ -90,5 +101,7 @@ return (
     </div>
     );
         }
+
+    
 
 export default Animals;

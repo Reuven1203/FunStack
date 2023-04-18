@@ -9,6 +9,7 @@ import ParrotChat from './Routes/ParrotChat/ParrotChat';
 import JungleRewards from './Routes/JungleRewards/JungleRewards';
 import LearningLions from './Routes/LearningLions/LearningLions.jsx';
 import Shapes from './Routes/LearningLions/Shapes/Shapes.jsx';
+import Animals from './Routes/LearningLions/Animals/Animals.jsx';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <Route path="learning-lions/shapes" element={<Shapes/>}/>
           <Route path="learning-lions/numbers" />
           <Route path="learning-lions/colors" />
-          <Route path="learning-lions/animals" />
+          <Route path="learning-lions/animals" element={<Animals/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
