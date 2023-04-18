@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
 
 const shapes = [
   {
@@ -27,10 +30,11 @@ const shapes = [
 const Shapes = () => {
   const [shape, setShape] = useState(shapes[0]);
   const [score, setScore] = useState(0);
-  const [answerEntered, setAnswerEntered] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(false);
   const [shapeIndex, setShapeIndex] = useState(0);
   const [done, setDone] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
   const checkAnswer = (answer) => {
     if (answer === shape.name) {
       setScore(score + 1);
@@ -38,7 +42,7 @@ const Shapes = () => {
     } else {
       setCorrectAnswer(false);
     }
-    setAnswerEntered(true);
+    setModalOpen(true);
   };
   const onNextHandler = () => {
     //set to next shape
@@ -48,11 +52,101 @@ const Shapes = () => {
     } else {
       setDone(true);
     }
-    setAnswerEntered(false);
+    setModalOpen(false);
   };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
+  const modalStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    maxWidth: 500,
+    width: '100%',
+    p: 4,
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    borderRadius: '15px',
+  };
+
+  const correctStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    maxWidth: 350,
+    width: '100%',
+    p: 4,
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    borderRadius: '15px',
+  };
+
+  const body = (
+    <Modal open={modalOpen} onClose={handleModalClose}>
+      <Paper sx={correctStyle}>
+        <Typography
+          variant="h5"
+          gutterBottom
+          sx={{ display: 'flex', justifyContent: 'center' }}
+        >
+          {correctAnswer ? 'Correct!' : 'Oops, that was incorrect'}
+        </Typography>
+        <div style={{ textAlign: 'center' }}>
+          <Button variant="outlined" onClick={onNextHandler}>
+            Continue
+          </Button>
+        </div>
+      </Paper>
+    </Modal>
+  );
+
+  const finalAnswer = (
+    <Modal
+      open={done}
+      onClose={() => {
+        handleModalClose;
+      }}
+    >
+      <Paper sx={modalStyle}>
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{ display: 'flex', justifyContent: 'center' }}
+        >
+          You got {score} out of {shapes.length} correct!
+        </Typography>
+        <Typography
+          variant="h5"
+          gutterBottom
+          sx={{ display: 'flex', justifyContent: 'center' }}
+        >
+          {score} ⭐ added to your bank!
+        </Typography>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <Button
+            variant="contained"
+            onClick={() => window.location.reload()}
+            style={{ marginRight: '10px' }}
+          >
+            Try Again
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => (window.location.href = '/learning-lions')}
+          >
+            Back
+          </Button>
+        </div>
+      </Paper>
+    </Modal>
+  );
   return (
     <div className="w-full h-full flex justify-center mt-7">
-      {!answerEntered && !done && (
+      {!done && (
         <div className="flex-col justify-center align-center items-center">
           <h1 className="text-center">What shape is this</h1>
           <div className="w-full flex justify-center">
@@ -84,20 +178,26 @@ const Shapes = () => {
           </div>
         </div>
       )}
-      {answerEntered && !done && (
-        <div className="flex-col justify-center align-center items-center">
-          <h1 className="text-center">
-            {correctAnswer ? 'Correct!' : 'Oops, that was incorrect'}
-          </h1>
-          <Button onClick={() => onNextHandler()}>Next</Button>
-        </div>
+      {!done && (
+        <Modal
+          open={modalOpen}
+          onClose={() => {
+            handleModalClose;
+          }}
+        >
+          {body}
+        </Modal>
       )}
+
       {done && (
-        <div className="flex-col justify-center align-center items-center">
-          <h1 className="text-center">
-            You got {score} out of {shapes.length} correct!
-          </h1>
-        </div>
+        <Modal
+          open={true}
+          onClose={() => {
+            handleModalClose;
+          }}
+        >
+          {finalAnswer}
+        </Modal>
       )}
     </div>
   );

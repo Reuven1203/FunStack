@@ -9,7 +9,6 @@ import { Card } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import StarIcon from '@mui/icons-material/Star';
 
 const animals = [
   {
@@ -41,7 +40,6 @@ const animals = [
 const Animals = () => {
   const [animal, setAnimal] = useState(animals[0]);
   const [score, setScore] = useState(0);
-  const [answerEntered, setAnswerEntered] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(false);
   const [animalIndex, setAnimalIndex] = useState(0);
   const [done, setDone] = useState(false);
@@ -59,7 +57,6 @@ const Animals = () => {
     } else {
       setCorrectAnswer(false);
     }
-    setAnswerEntered(true);
     setModalOpen(true);
   };
 
@@ -71,7 +68,6 @@ const Animals = () => {
     } else {
       setDone(true);
     }
-    setAnswerEntered(false);
     setCorrectAnswer(false);
     setModalOpen(false);
   };
