@@ -4,8 +4,9 @@ import { IconButton } from '@mui/material';
 import CircularProgressWithLabel from '../../components/Progress/CircularProgressWithLabel';
 import StarIcon from '@mui/icons-material/Star';
 import CustomToolTip from '../../components/ToolTip/CustomToolTip';
+import { Link } from 'react-router-dom';
 
-const Header = (props) => {
+function Header(props) {
   const stars = 20;
 
   const handleStarClick = () => {
@@ -17,16 +18,20 @@ const Header = (props) => {
       <IconButton onClick={props.onMenuClick} size="large">
         <Menu fontSize="large" />
       </IconButton>
+
       <h1 className="text-5xl font-bold flex-grow flex-shrink-1 text-center">
-        <span className="gradient-text-red">F</span>
-        <span className="gradient-text-orange">u</span>
-        <span className="gradient-text-yellow">n</span>
-        <span className="gradient-text-green">S</span>
-        <span className="gradient-text-blue">t</span>
-        <span className="gradient-text-purple">a</span>
-        <span className="gradient-text-pink">c</span>
-        <span className="gradient-text-red">k</span>
+        <Link to="/home">
+          <span className="gradient-text-red">F</span>
+          <span className="gradient-text-orange">u</span>
+          <span className="gradient-text-yellow">n</span>
+          <span className="gradient-text-green">S</span>
+          <span className="gradient-text-blue">t</span>
+          <span className="gradient-text-purple">a</span>
+          <span className="gradient-text-pink">c</span>
+          <span className="gradient-text-red">k</span>
+        </Link>
       </h1>
+
       <CustomToolTip title={`You have ${stars} stars!`}>
         <div className="mr-10 flex justify-center">
           <button onClick={handleStarClick}>
@@ -38,6 +43,6 @@ const Header = (props) => {
       </CustomToolTip>
     </header>
   );
-};
+}
 
 export default Header;
