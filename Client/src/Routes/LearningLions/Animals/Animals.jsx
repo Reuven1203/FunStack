@@ -10,21 +10,25 @@ const animals = [
         name: 'Cat',
         img:'https://img.freepik.com/premium-vector/cute-cat-cartoon-sitting_194935-99.jpg?w=2000',
         sound: meow,
+        color: 'blue'
     },
     {
         name: 'Dog',
         img: 'https://img.freepik.com/premium-vector/cute-little-dog-cartoon-isolated-white_143596-3.jpg?w=2000',
         sound: bark,
+        color: 'red'
     },
     {
         name: 'Cow',
         img: 'https://static.vecteezy.com/system/resources/previews/013/211/278/original/cartoon-of-cow-illustration-cow-in-format-image-illustration-of-cow-free-png.png',
         sound: moo,
+        color: 'green'
     },
     {
         name: 'Chicken',
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Chicken_cartoon_04.svg/723px-Chicken_cartoon_04.svg.png',
         sound: chicken,
+        color: 'yellow'
     }
 ];
 
@@ -68,7 +72,6 @@ return (
         <div className="w-full h-full flex justify-center mt-7">
             {!answerEntered && !done && <div className="flex-col justify-center align-center items-center">
                 <h1 className="text-center">What animal is this</h1>
-                {animal.name}
                 <div className="w-full flex justify-center" onClick={() => playSound(animal.sound)}>
                     <img src ={animal.img}  className="w-[200px] h-[200px]"/>
                 </div>
@@ -77,7 +80,16 @@ return (
                             return (
                                 <Button
                                     key={index}
-                                    style={{backgroundColor: 'black', color: 'white', width: '200px', height: '200px', fontSize: '25px', borderRadius: '20px'}}
+                                    style={{
+                                        backgroundColor: 'white',
+                    color: 'black',
+                    width: '200px',
+                    height: '100px',
+                    fontSize: '25px',
+                    borderRadius: '15px',
+                    border: '4px solid',
+                    borderColor: animal.color,
+                                    }}
                                     onClick={() => {
                                         checkAnswer(animal.name);
                                     }}
