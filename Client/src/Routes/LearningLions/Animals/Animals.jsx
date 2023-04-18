@@ -77,7 +77,7 @@ return (
                             return (
                                 <Button
                                     key={index}
-                                    style={{backgroundColor: 'black', color: 'white', width: '200px', height: '200px', fontSize: '25px'}}
+                                    style={{backgroundColor: 'black', color: 'white', width: '200px', height: '200px', fontSize: '25px', borderRadius: '20px'}}
                                     onClick={() => {
                                         checkAnswer(animal.name);
                                     }}
