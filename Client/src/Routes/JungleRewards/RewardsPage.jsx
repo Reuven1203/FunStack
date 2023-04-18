@@ -14,7 +14,7 @@ const prizes = [
 ];
 
 const RewardsPage = () => {
-  const [stars, setStars] = useState(Math.floor(Math.random() * 41));
+  const [stars, setStars] = useState(20);
 
   const handleStarClick = () => {
     window.location.href = '/learning-lions';
@@ -49,7 +49,7 @@ const RewardsPage = () => {
               <Typography variant="body2" color="text.secondary">
                 {prize.description}
               </Typography>
-              <div className="mt-4 flex items-center">
+              <div className="m-4 flex justify-center items-center">
                 <StarIcon className="h-5 w-5 mr-2" />
                 <Typography variant="h6">{prize.stars}</Typography>
               </div>
