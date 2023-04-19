@@ -95,7 +95,7 @@ Start the app
 | Adir Ben-David   | 40190551 | https://github.com/beezzyy            |
 | Jonathan Abitbol | 40190550 | https://github.com/yoniabitbol        |
 | Reuven Ostrofsky | 40188881 | https://github.com/Reuven1203         |
-| Ethan Wong       | 40177365 | https://github.com/                   |
+| Ethan Wong       | 40177365 | https://github.com/ewong411           |
 | Evan Greenstein  | 40173229 | https://github.com/EvanGreener        |
 | Matteo Mazzone   | 40174614 | https://github.com/mattmazzone        |
 
